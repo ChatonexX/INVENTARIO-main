@@ -20,7 +20,7 @@
 
 
     /*== Verificando integridad de los datos ==*/
-    if(verificar_datos("[a-zA-Z0-9- ]{1,70}",$nombre_proveedor)){
+    if(verificar_datos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}",$nombre_proveedor)){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -30,7 +30,8 @@
         exit();
     }
 
-    if(verificar_datos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}",$celular)){
+
+    if(verificar_datos(" [a-zA-Z0-9- ]{1,70}",$celular)){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -41,9 +42,9 @@
     }
 
     /*== Verificando n_proveedor ==*/
-    $check_codigo=conexion();
-    $check_codigo=$check_codigo->query("SELECT nombre_proveedor FROM proveedor WHERE nombre_proveedor='$nombre_proveedor'");
-    if($check_codigo->rowCount()>0){
+    $check_nombre_proveedor=conexion();
+    $check_nombre_proveedor=$check_nombre_proveedor->query("SELECT nombre_proveedor FROM proveedor WHERE nombre_proveedor='$nombre_proveedor'");
+    if($check_nombre_proveedor->rowCount()>0){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -56,9 +57,9 @@
 
 
     /*== Verificando celular ==*/
-    $check_nombre=conexion();
-    $check_nombre=$check_nombre->query("SELECT celular FROM proveedor WHERE celular='$celular'");
-    if($check_nombre->rowCount()>0){
+    $check_celular=conexion();
+    $check_celular=$check_celular->query("SELECT celular FROM proveedor WHERE celular='$celular'");
+    if($check_celular->rowCount()>0){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -72,11 +73,11 @@
 
 	/*== Guardando datos ==*/
     $guardar_nombre_p=conexion();
-    $guardar_nombre_p=$guardar_nombre_p->prepare("INSERT INTO proveedor VALUES(:nombre_proveedor, :celular)");
+    $guardar_nombre_p=$guardar_nombre_p->prepare("INSERT INTO proveedor(nombre_proveedor, celular) VALUES(:nombre_proveedor, :celular)");
 
     $marcadores=[
         ":nombre_proveedor"=>$nombre_proveedor,
-        ":celular"=>$celular,
+        ":celular"=>$celular
 
     ];
 
