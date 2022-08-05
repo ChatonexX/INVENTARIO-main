@@ -12,17 +12,17 @@
 
 	<form action="./php/producto_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data" >
 		<div class="columns">
+			<div class="column">
+			  <div class="control">
+				  <label>Nombre</label>
+					<input class="input" type="text" name="producto_nombre" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}" maxlength="70" required >
+			  </div>
 		  	<div class="column">
 		    	<div class="control">
-					<label>Código de barra</label>
+					<label>Descripcion</label>
 				  	<input class="input" type="text" name="producto_codigo" pattern="[a-zA-Z0-9- ]{1,70}" maxlength="70" required >
 				</div>
 		  	</div>
-		  	<div class="column">
-		    	<div class="control">
-					<label>Nombre</label>
-				  	<input class="input" type="text" name="producto_nombre" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}" maxlength="70" required >
-				</div>
 		  	</div>
 		</div>
 		<div class="columns">
