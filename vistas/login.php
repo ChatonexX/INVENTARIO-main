@@ -19,6 +19,7 @@
 
 		<p class="has-text-centered mb-4 mt-3">
 			<button type="submit" class="button is-info is-rounded">Iniciar sesion</button>
+			<a href="#nombre_new" class="button is-info is-rounded">Registrar</a>
 		</p>
 
 		<?php
@@ -28,6 +29,4 @@
 			}
 		?>
 	</form>
-
-
 </div>

@@ -8,6 +8,8 @@ body,html{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding-bottom: 100px;
+	border: solid black 1px;
 }
 .main-container > .login,
 .main-container > .hero-body{

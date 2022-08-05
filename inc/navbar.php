@@ -41,7 +41,7 @@
 
                 <div class="navbar-dropdown">
                     <a href="index.php?vista=proveedores" class="navbar-item">Nuevo</a>
-                    <a href="index.php?vista=product_list" class="navbar-item">Lista</a>
+                    <a href="index.php?vista=proveedor_list" class="navbar-item">Lista</a>
                 </div>
             </div>
 
@@ -50,9 +50,9 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a href="index.php?vista=user_update&user_id_up=<?php echo $_SESSION['id']; ?>" class="button is-primary is-rounded">
+                    <!--<a href="index.php?vista=user_update&user_id_up=<?php echo $_SESSION['id']; ?>" class="button is-primary is-rounded">
                         Mi cuenta
-                    </a>
+                    </a>-->
 
                     <a href="index.php?vista=logout" class="button is-link is-rounded">
                         Salir

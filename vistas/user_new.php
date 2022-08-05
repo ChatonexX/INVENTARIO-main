@@ -10,7 +10,7 @@
 		<div class="columns">
 		  	<div class="column">
 		    	<div class="control">
-					<label>Nombres</label>
+					<label id="nombre_new">Nombres</label>
 				  	<input class="input" type="text" name="usuario_nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" maxlength="40" required >
 				</div>
 		  	</div>
