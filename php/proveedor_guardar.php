@@ -1,6 +1,4 @@
 <?php
-	require_once "../inc/session_start.php";
-
 	require_once "main.php";
 
 	/*== Almacenando datos ==*/
@@ -20,18 +18,7 @@
 
 
     /*== Verificando integridad de los datos ==*/
-    if(verificar_datos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}",$nombre_proveedor)){
-        echo '
-            <div class="notification is-danger is-light">
-                <strong>¡Ocurrio un error inesperado!</strong><br>
-                El CODIGO de BARRAS no coincide con el formato solicitado
-            </div>
-        ';
-        exit();
-    }
-
-
-    if(verificar_datos(" [a-zA-Z0-9- ]{1,70}",$celular)){
+    if(verificar_datos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{4,50}",$nombre_proveedor)){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -41,9 +28,21 @@
         exit();
     }
 
+
+   /* if(verificar_datos(" [0-9]{1,10}",$celular)){
+        echo '
+            <div class="notification is-danger is-light">
+                <strong>¡Ocurrio un error inesperado!</strong><br>
+                El CELULAR no coincide con el formato solicitado
+            </div>
+        ';
+        exit();
+    }*/
+
     /*== Verificando n_proveedor ==*/
     $check_nombre_proveedor=conexion();
     $check_nombre_proveedor=$check_nombre_proveedor->query("SELECT nombre_proveedor FROM proveedor WHERE nombre_proveedor='$nombre_proveedor'");
+
     if($check_nombre_proveedor->rowCount()>0){
         echo '
             <div class="notification is-danger is-light">
@@ -53,7 +52,7 @@
         ';
         exit();
     }
-    $check_codigo=null;
+    $check_nombre_proveedor=null;
 
 
     /*== Verificando celular ==*/
@@ -63,17 +62,17 @@
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
-                El NOMBRE ingresado ya se encuentra registrado, por favor elija otro
+                El CELULAR ingresado ya se encuentra registrado, por favor elija otro
             </div>
         ';
         exit();
     }
-    $check_nombre=null;
+    $check_celular=null;
 
 
 	/*== Guardando datos ==*/
-    $guardar_nombre_p=conexion();
-    $guardar_nombre_p=$guardar_nombre_p->prepare("INSERT INTO proveedor(nombre_proveedor, celular) VALUES(:nombre_proveedor, :celular)");
+    $guardar_proveedor=conexion();
+    $guardar_proveedor=$guardar_proveedor->prepare("INSERT INTO proveedor(nombre_proveedor, celular) VALUES(:nombre_proveedor, :celular)");
 
     $marcadores=[
         ":nombre_proveedor"=>$nombre_proveedor,
@@ -81,9 +80,9 @@
 
     ];
 
-    $guardar_nombre_p->execute($marcadores);
+    $guardar_proveedor->execute($marcadores);
 
-    if($guardar_nombre_p->rowCount()==1){
+    if($guardar_proveedor->rowCount()==1){
         echo '
             <div class="notification is-info is-light">
                 <strong>¡PROVEEDOR REGISTRADO!</strong><br>
@@ -99,4 +98,4 @@
             </div>
         ';
     }
-    $guardar_nombre_p=null;
+    $guardar_proveedor=null;
