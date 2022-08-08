@@ -7,11 +7,14 @@
 			<label class="label">Usuario</label>
 			<div class="control">
 			    <input class="input" type="text" name="login_usuario" pattern="[a-zA-Z0-9]{4,20}" maxlength="20" required >
+				<span class="icon is-small is-left">
+				<i class="fas fa-envelope"></i>
+    			</span>
 			</div>
 		</div>
 
 		<div class="field">
-		  	<label class="label">Clave</label>
+		  	<label class="label">Contraseña</label>
 		  	<div class="control">
 		    	<input class="input" type="password" name="login_clave" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required >
 		  	</div>

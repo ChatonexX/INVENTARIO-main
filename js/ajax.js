@@ -1,9 +1,11 @@
 const formularios_ajax=document.querySelectorAll(".FormularioAjax");
 
-function enviar_formulario_ajax(e){
+function enviar_formulario_ajax(e)
+{
+    //No se van a redirigir automaticamente los formularios
     e.preventDefault();
 
-    let enviar=confirm("Quieres enviar el formulario");
+    let enviar=confirm("¿Quieres enviar el formulario?");
 
     if(enviar==true){
 

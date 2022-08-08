@@ -1,4 +1,5 @@
 <script>
+    //Script para la navegación para dispositivos moviles
     document.addEventListener('DOMContentLoaded', () => {
 
         // Get all "navbar-burger" elements
