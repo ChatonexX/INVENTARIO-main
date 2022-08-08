@@ -16,7 +16,7 @@
 
                 if(!isset($_GET['vista']) || $_GET['vista']==""){
                     $_GET['vista']="login";
-                    $_GET['vista']="user_new";
+                   /* $_GET['vista']="user_new";*/
                 }
                     /***
                      * Preguntar si la variable GET coincide con una vista
