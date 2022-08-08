@@ -8,12 +8,13 @@
 	$nombre=limpiar_cadena($_POST['producto_nombre']);
 	$precio=limpiar_cadena($_POST['producto_precio']);
 	$stock=limpiar_cadena($_POST['producto_stock']);
+    $stockm=limpiar_cadena($_POST['stock_minimo']);
 	$categoria=limpiar_cadena($_POST['producto_categoria']);
     $proveedor=limpiar_cadena($_POST['proveedor']);
 
 
 	/*== Verificando campos obligatorios ==*/
-    if($codigo=="" || $nombre=="" || $precio=="" || $stock=="" || $categoria=="" ||$proveedor==""){
+    if($codigo=="" || $nombre=="" || $precio=="" || $stock=="" || $stockm=="" || $categoria=="" ||$proveedor==""){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -65,6 +66,17 @@
         exit();
     }
 
+    /*stock minimo*/
+    if(verificar_datos("[0-9]{1,25}",$stockm)){
+        echo '
+            <div class="notification is-danger is-light">
+                <strong>¡Ocurrio un error inesperado!</strong><br>
+                El STOCK MINIMO no coincide con el formato solicitado
+            </div>
+        ';
+        exit();
+    }
+
 
     /*== Verificando codigo ==*/
     $check_codigo=conexion();
@@ -73,7 +85,7 @@
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
-                El CODIGO de BARRAS ingresado ya se encuentra registrado, por favor elija otro
+                La descripcion ingresada ya se encuentra registrada, por favor elija otro
             </div>
         ';
         exit();
@@ -207,13 +219,18 @@
 
 	/*== Guardando datos ==*/
     $guardar_producto=conexion();
-    $guardar_producto=$guardar_producto->prepare("INSERT INTO producto(producto_codigo,producto_nombre,producto_precio,producto_stock,producto_foto,categoria_id,usuario_id,id_prov) VALUES(:codigo,:nombre,:precio,:stock,:foto,:categoria,:usuario, :proveedor)");
+    $guardar_producto=$guardar_producto->prepare
+    ("INSERT INTO producto(producto_codigo,producto_nombre,producto_precio,
+    producto_stock,stock_minimo,producto_foto,categoria_id,usuario_id,id_prov) 
+
+    VALUES(:codigo,:nombre,:precio,:stock,:stockm,:foto,:categoria,:usuario, :proveedor)");
 
     $marcadores=[
         ":codigo"=>$codigo,
         ":nombre"=>$nombre,
         ":precio"=>$precio,
         ":stock"=>$stock,
+        ":stockm"=>$stockm,
         ":foto"=>$foto,
         ":categoria"=>$categoria,
         ":proveedor"=>$proveedor,
