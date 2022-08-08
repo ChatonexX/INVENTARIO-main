@@ -17,7 +17,8 @@
 				  <label>Nombre</label>
 					<input class="input" type="text" name="producto_nombre" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}" maxlength="70" required >
 			  </div>
-		  	<div class="column">
+
+		  	<div class="colums">
 		    	<div class="control">
 					<label>Descripcion</label>
 				  	<input class="input" type="text" name="producto_codigo" pattern="[a-zA-Z0-9- ]{1,70}" maxlength="70" required >
@@ -57,6 +58,29 @@
 				  	</select>
 				</div>
 		  	</div>
+
+
+		<!--<div class="column">
+				<label>Proveedor</label><br>
+		    	<div class="select is-rounded">
+				  	<select name="producto_proveedor" >
+				    	<option value="" selected="" >Seleccione una opción</option>
+				    	<?php
+    						/*$proveedor=conexion();
+    						$proveedor=$proveedor->query("SELECT * FROM proveedor");
+    						if($proveedor->rowCount()>0){
+    							$proveedor=$proveedor->fetchAll();
+    							foreach($proveedor as $row){
+    								echo '<option value="'.$row['id_prov'].'" >'.$row['nombre_proveedor'].'</option>';
+				    			}
+				   			}
+				   			$proveedor=null;*/
+				    	?>
+				  	</select>
+				</div>
+		  	</div>-->
+
+			
 		</div>
 		<div class="columns">
 			<div class="column">

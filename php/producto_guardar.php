@@ -10,10 +10,11 @@
 	$precio=limpiar_cadena($_POST['producto_precio']);
 	$stock=limpiar_cadena($_POST['producto_stock']);
 	$categoria=limpiar_cadena($_POST['producto_categoria']);
+    /*$proveedor=limpiar_cadena($_POST['poducto_proveedor']);*/
 
 
 	/*== Verificando campos obligatorios ==*/
-    if($codigo=="" || $nombre=="" || $precio=="" || $stock=="" || $categoria==""){
+    if($codigo=="" || $nombre=="" || $precio=="" || $stock=="" || $categoria=="" /*|| $proveedor==""*/){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -29,7 +30,7 @@
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
-                El CODIGO de BARRAS no coincide con el formato solicitado
+                La DESCRIPCION no coincide con el formato solicitado
             </div>
         ';
         exit();
@@ -82,7 +83,7 @@
 
 
     /*== Verificando nombre ==*/
-    $check_nombre=conexion();
+    /*$check_nombre=conexion();
     $check_nombre=$check_nombre->query("SELECT producto_nombre FROM producto WHERE producto_nombre='$nombre'");
     if($check_nombre->rowCount()>0){
         echo '
@@ -93,7 +94,7 @@
         ';
         exit();
     }
-    $check_nombre=null;
+    $check_nombre=null;*/
 
 
     /*== Verificando categoria ==*/
@@ -109,6 +110,21 @@
         exit();
     }
     $check_categoria=null;
+
+
+    /*== Verificando proveedor ==*/
+    /*$check_proveedor=conexion();
+    $check_proveedor=$check_proveedor->query("SELECT id_prov FROM proveedor WHERE id_prov='$proveedor'");
+    if($check_proveedor->rowCount()<=0){
+        echo '
+            <div class="notification is-danger is-light">
+                <strong>¡Ocurrio un error inesperado!</strong><br>
+                El proveedor seleccionado no existe
+            </div>
+        ';
+        exit();
+    }
+    $check_proveedor=null;*/
 
 
     /* Directorios de imagenes */
@@ -192,7 +208,7 @@
 
 	/*== Guardando datos ==*/
     $guardar_producto=conexion();
-    $guardar_producto=$guardar_producto->prepare("INSERT INTO producto(producto_codigo,producto_nombre,producto_precio,producto_stock,producto_foto,categoria_id,usuario_id) VALUES(:codigo,:nombre,:precio,:stock,:foto,:categoria,:usuario)");
+    $guardar_producto=$guardar_producto->prepare("INSERT INTO producto(producto_codigo,producto_nombre,producto_precio,producto_stock,producto_foto,categoria_id,/*id_prov*/, usuario_id) VALUES(:codigo,:nombre,:precio,:stock,:foto,:categoria,/*:proveedor*/,:usuario)");
 
     $marcadores=[
         ":codigo"=>$codigo,
@@ -201,6 +217,7 @@
         ":stock"=>$stock,
         ":foto"=>$foto,
         ":categoria"=>$categoria,
+        /*":proveedor"=>$proveedor,*/
         ":usuario"=>$_SESSION['id']
     ];
 

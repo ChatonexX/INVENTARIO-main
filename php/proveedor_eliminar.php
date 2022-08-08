@@ -1,6 +1,6 @@
 <?php
 	/*== Almacenando datos ==*/
-    $category_id_del=limpiar_cadena($_GET['category_id_del']);
+    $supplier_id_del=limpiar_cadena($_GET['supplier_id_del']);
 
     /*== Verificando usuario ==*/
     $check_proveedor=conexion();
