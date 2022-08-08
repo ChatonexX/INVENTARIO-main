@@ -60,25 +60,25 @@
 		  	</div>
 
 
-		<!--<div class="column">
+		<div class="column">
 				<label>Proveedor</label><br>
 		    	<div class="select is-rounded">
-				  	<select name="producto_proveedor" >
+				  	<select name="proveedor" >
 				    	<option value="" selected="" >Seleccione una opción</option>
 				    	<?php
-    						/*$proveedor=conexion();
-    						$proveedor=$proveedor->query("SELECT * FROM proveedor");
-    						if($proveedor->rowCount()>0){
-    							$proveedor=$proveedor->fetchAll();
-    							foreach($proveedor as $row){
+    						$proveedores=conexion();
+    						$proveedores=$proveedores->query("SELECT * FROM proveedor");
+    						if($proveedores->rowCount()>0){
+    							$proveedores=$proveedores->fetchAll();
+    							foreach($proveedores as $row){
     								echo '<option value="'.$row['id_prov'].'" >'.$row['nombre_proveedor'].'</option>';
 				    			}
 				   			}
-				   			$proveedor=null;*/
+				   			$proveedores=null;
 				    	?>
 				  	</select>
 				</div>
-		  	</div>-->
+		  	</div>
 
 			
 		</div>
