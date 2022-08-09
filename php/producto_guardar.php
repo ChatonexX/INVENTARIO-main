@@ -36,7 +36,7 @@
         exit();
     }
 
-    if(verificar_datos("[a-zA-Z0-9- ]{1,70}",$descripcion)){
+    if(verificar_datos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}",$descripcion)){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -78,21 +78,6 @@
     }
 
 
-    /*== Verificando descripcion ==*/
-    $check_descripcion=conexion();
-    $check_descripcion=$check_descripcion->query("SELECT producto_descripcion FROM producto WHERE producto_descripcion='$descripcion'");
-    if($check_descripcion->rowCount()>0){
-        echo '
-            <div class="notification is-danger is-light">
-                <strong>¡Ocurrio un error inesperado!</strong><br>
-                La descripcion ingresada ya se encuentra registrada, por favor elija otro
-            </div>
-        ';
-        exit();
-    }
-    $check_descripcion=null;
-
-
     /*== Verificando nombre ==*/
     $check_nombre=conexion();
     $check_nombre=$check_nombre->query("SELECT producto_nombre FROM producto WHERE producto_nombre='$nombre'");
@@ -106,6 +91,21 @@
         exit();
     }
     $check_nombre=null;
+
+
+    /*== Verificando descripcion ==*/
+    $check_descripcion=conexion();
+    $check_descripcion=$check_descripcion->query("SELECT producto_descripcion FROM producto WHERE producto_descripcion='$descripcion'");
+    if($check_descripcion->rowCount()>0){
+        echo '
+            <div class="notification is-danger is-light">
+                <strong>¡Ocurrio un error inesperado!</strong><br>
+                La descripcion ingresada ya se encuentra registrada, por favor elija otro
+            </div>
+        ';
+        exit();
+    }
+    $check_descripcion=null;
 
 
     /*== Verificando categoria ==*/
@@ -220,7 +220,7 @@
 	/*== Guardando datos ==*/
     $guardar_producto=conexion();
     $guardar_producto=$guardar_producto->prepare
-    ("INSERT INTO producto(producto_descripcion,producto_nombre,producto_precio,
+    ("INSERT INTO producto(producto_nombre,producto_descripcion,producto_precio,
     producto_stock,stock_minimo,producto_foto,categoria_id,usuario_id,id_prov) 
 
     VALUES(:nombre,:descripcion,:precio,:stock,:stockm,:foto,:categoria,:usuario, :proveedor)");

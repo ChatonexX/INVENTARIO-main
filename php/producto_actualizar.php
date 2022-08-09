@@ -56,7 +56,7 @@
         exit();
     }
 
-    if(verificar_datos("[a-zA-Z0-9- ]{1,70}",$descripcion)){
+    if(verificar_datos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}",$descripcion)){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -140,7 +140,7 @@
 
     /*== Actualizando datos ==*/
     $actualizar_producto=conexion();
-    $actualizar_producto=$actualizar_producto->prepare("UPDATE producto SET producto_descripcion=:descripcion,producto_nombre=:nombre,producto_precio=:precio,producto_stock=:stock,categoria_id=:categoria WHERE producto_id=:id");
+    $actualizar_producto=$actualizar_producto->prepare("UPDATE producto SET producto_nombre=:nombre,producto_descripcion=:descripcion,producto_precio=:precio,producto_stock=:stock,categoria_id=:categoria WHERE producto_id=:id");
 
     $marcadores=[
         ":nombre"=>$nombre,
