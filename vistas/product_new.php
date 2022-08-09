@@ -21,7 +21,7 @@
 		  	<div class="colums">
 		    	<div class="control">
 					<label>Descripcion</label>
-				  	<input class="input" type="text" name="producto_codigo" pattern="[a-zA-Z0-9- ]{1,70}" maxlength="70" required >
+				  	<input class="input" type="text" name="producto_descripcion" pattern="[a-zA-Z0-9- ]{1,70}" maxlength="70" required >
 				</div>
 		  	</div>
 		  	</div>

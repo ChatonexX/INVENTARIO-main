@@ -4,8 +4,8 @@
 	require_once "main.php";
 
 	/*== Almacenando datos ==*/
-	$codigo=limpiar_cadena($_POST['producto_codigo']);
 	$nombre=limpiar_cadena($_POST['producto_nombre']);
+    $descripcion=limpiar_cadena($_POST['producto_descripcion']);
 	$precio=limpiar_cadena($_POST['producto_precio']);
 	$stock=limpiar_cadena($_POST['producto_stock']);
     $stockm=limpiar_cadena($_POST['stock_minimo']);
@@ -14,7 +14,7 @@
 
 
 	/*== Verificando campos obligatorios ==*/
-    if($codigo=="" || $nombre=="" || $precio=="" || $stock=="" || $stockm=="" || $categoria=="" ||$proveedor==""){
+    if($nombre=="" || $descripcion=="" || $precio=="" || $stock=="" || $stockm=="" || $categoria=="" ||$proveedor==""){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -26,7 +26,7 @@
 
 
     /*== Verificando integridad de los datos ==*/
-    if(verificar_datos("[a-zA-Z0-9- ]{1,70}",$codigo)){
+    if(verificar_datos("[a-zA-Z0-9- ]{1,70}",$descripcion)){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -78,10 +78,10 @@
     }
 
 
-    /*== Verificando codigo ==*/
-    $check_codigo=conexion();
-    $check_codigo=$check_codigo->query("SELECT producto_codigo FROM producto WHERE producto_codigo='$codigo'");
-    if($check_codigo->rowCount()>0){
+    /*== Verificando descripcion ==*/
+    $check_descripcion=conexion();
+    $check_descripcion=$check_descripcion->query("SELECT producto_descripcion FROM producto WHERE producto_descripcion='$descripcion'");
+    if($check_descripcion->rowCount()>0){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -90,7 +90,7 @@
         ';
         exit();
     }
-    $check_codigo=null;
+    $check_descripcion=null;
 
 
     /*== Verificando nombre ==*/
@@ -220,14 +220,14 @@
 	/*== Guardando datos ==*/
     $guardar_producto=conexion();
     $guardar_producto=$guardar_producto->prepare
-    ("INSERT INTO producto(producto_codigo,producto_nombre,producto_precio,
+    ("INSERT INTO producto(producto_descripcion,producto_nombre,producto_precio,
     producto_stock,stock_minimo,producto_foto,categoria_id,usuario_id,id_prov) 
 
-    VALUES(:codigo,:nombre,:precio,:stock,:stockm,:foto,:categoria,:usuario, :proveedor)");
+    VALUES(:nombre,:descripcion,:precio,:stock,:stockm,:foto,:categoria,:usuario, :proveedor)");
 
     $marcadores=[
-        ":codigo"=>$codigo,
         ":nombre"=>$nombre,
+        ":descripcion"=>$descripcion,
         ":precio"=>$precio,
         ":stock"=>$stock,
         ":stockm"=>$stockm,

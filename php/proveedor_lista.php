@@ -52,9 +52,6 @@
                     <td>'.$rows['nombre_proveedor'].'</td>
                     <td>'.substr($rows['celular'],0,25).'</td>
                     <td>
-                        <a href="index.php?vista=product_category&category_id='.$rows['id_prov'].'" class="button is-link is-rounded is-small">Ver proveedores</a>
-                    </td>
-                    <td>
                         <a href="index.php?vista=category_update&category_id_up='.$rows['id_prov'].'" class="button is-success is-rounded is-small">Actualizar</a>
                     </td>
                     <td>

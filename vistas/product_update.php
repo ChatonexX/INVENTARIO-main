@@ -28,16 +28,17 @@
 		<input type="hidden" name="producto_id" value="<?php echo $datos['producto_id']; ?>" required >
 
 		<div class="columns">
-		  	<div class="column">
-		    	<div class="control">
-					<label>Código de barra</label>
-				  	<input class="input" type="text" name="producto_codigo" pattern="[a-zA-Z0-9- ]{1,70}" maxlength="70" required value="<?php echo $datos['producto_codigo']; ?>" >
-				</div>
-		  	</div>
+
 		  	<div class="column">
 		    	<div class="control">
 					<label>Nombre</label>
 				  	<input class="input" type="text" name="producto_nombre" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}" maxlength="70" required value="<?php echo $datos['producto_nombre']; ?>" >
+				</div>
+		  	</div>
+			  <div class="column">
+		    	<div class="control">
+					<label>Descripcion</label>
+				  	<input class="input" type="text" name="producto_descripcion" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}" maxlength="70" required value="<?php echo $datos['producto_descripcion']; ?>" >
 				</div>
 		  	</div>
 		</div>

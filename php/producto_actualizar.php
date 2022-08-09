@@ -24,7 +24,7 @@
 
 
     /*== Almacenando datos ==*/
-    $codigo=limpiar_cadena($_POST['producto_codigo']);
+    $descripcion=limpiar_cadena($_POST['producto_descripcion']);
 	$nombre=limpiar_cadena($_POST['producto_nombre']);
 
 	$precio=limpiar_cadena($_POST['producto_precio']);
@@ -33,7 +33,7 @@
 
 
 	/*== Verificando campos obligatorios ==*/
-    if($codigo=="" || $nombre=="" || $precio=="" || $stock=="" || $categoria==""){
+    if($descripcion=="" || $nombre=="" || $precio=="" || $stock=="" || $categoria==""){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -45,11 +45,11 @@
 
 
     /*== Verificando integridad de los datos ==*/
-    if(verificar_datos("[a-zA-Z0-9- ]{1,70}",$codigo)){
+    if(verificar_datos("[a-zA-Z0-9- ]{1,70}",$descripcion)){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
-                El CODIGO de BARRAS no coincide con el formato solicitado
+                El DESCRIPCION no coincide con el formato solicitado
             </div>
         ';
         exit();
@@ -86,20 +86,20 @@
     }
 
 
-    /*== Verificando codigo ==*/
-    if($codigo!=$datos['producto_codigo']){
-	    $check_codigo=conexion();
-	    $check_codigo=$check_codigo->query("SELECT producto_codigo FROM producto WHERE producto_codigo='$codigo'");
-	    if($check_codigo->rowCount()>0){
+    /*== Verificando descripcion ==*/
+    if($descripcion!=$datos['producto_descripcion']){
+	    $check_descripcion=conexion();
+	    $check_descripcion=$check_descripcion->query("SELECT producto_descripcion FROM producto WHERE producto_descripcion='$descripcion'");
+	    if($check_descripcion->rowCount()>0){
 	        echo '
 	            <div class="notification is-danger is-light">
 	                <strong>¡Ocurrio un error inesperado!</strong><br>
-	                El CODIGO de BARRAS ingresado ya se encuentra registrado, por favor elija otro
+	                La DESCRIPCION ingresadA ya se encuentra registradA, por favor elija otro
 	            </div>
 	        ';
 	        exit();
 	    }
-	    $check_codigo=null;
+	    $check_descripcion=null;
     }
 
 
@@ -139,10 +139,10 @@
 
     /*== Actualizando datos ==*/
     $actualizar_producto=conexion();
-    $actualizar_producto=$actualizar_producto->prepare("UPDATE producto SET producto_codigo=:codigo,producto_nombre=:nombre,producto_precio=:precio,producto_stock=:stock,categoria_id=:categoria WHERE producto_id=:id");
+    $actualizar_producto=$actualizar_producto->prepare("UPDATE producto SET producto_descripcion=:descripcion,producto_nombre=:nombre,producto_precio=:precio,producto_stock=:stock,categoria_id=:categoria WHERE producto_id=:id");
 
     $marcadores=[
-        ":codigo"=>$codigo,
+        ":descripcion"=>$descripcion,
         ":nombre"=>$nombre,
         ":precio"=>$precio,
         ":stock"=>$stock,
