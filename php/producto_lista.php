@@ -53,7 +53,11 @@
 			            <div class="content">
 			              <p>
 			                <strong>'.$contador.' - '.$rows['producto_nombre'].'</strong><br>
-			                <strong>DESCRIPCION:</strong> '.$rows['producto_descripcion'].', <strong>PRECIO:</strong> $'.$rows['producto_precio'].', <strong>STOCK:</strong> '.$rows['producto_stock'].', <strong>CATEGORIA:</strong> '.$rows['categoria_nombre'].', <strong>REGISTRADO POR:</strong> '.$rows['usuario_nombre'].' '.$rows['usuario_apellido'].'
+			                <strong>DESCRIPCION:</strong> '.$rows['producto_descripcion'].', 
+							<strong>PRECIO:</strong> $'.$rows['producto_precio'].', 
+							<strong>STOCK:</strong> '.$rows['producto_stock'].', 
+							<strong>CATEGORIA:</strong> '.$rows['categoria_nombre'].', 
+							<strong>REGISTRADO POR:</strong> '.$rows['usuario_nombre'].' '.$rows['usuario_apellido'].'
 			              </p>
 			            </div>
 			            <div class="has-text-right">

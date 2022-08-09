@@ -26,21 +26,21 @@
 
 
     /*== Verificando integridad de los datos ==*/
-    if(verificar_datos("[a-zA-Z0-9- ]{1,70}",$descripcion)){
-        echo '
-            <div class="notification is-danger is-light">
-                <strong>¡Ocurrio un error inesperado!</strong><br>
-                La DESCRIPCION no coincide con el formato solicitado
-            </div>
-        ';
-        exit();
-    }
-
     if(verificar_datos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}",$nombre)){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
                 El NOMBRE no coincide con el formato solicitado
+            </div>
+        ';
+        exit();
+    }
+
+    if(verificar_datos("[a-zA-Z0-9- ]{1,70}",$descripcion)){
+        echo '
+            <div class="notification is-danger is-light">
+                <strong>¡Ocurrio un error inesperado!</strong><br>
+                La DESCRIPCION no coincide con el formato solicitado
             </div>
         ';
         exit();

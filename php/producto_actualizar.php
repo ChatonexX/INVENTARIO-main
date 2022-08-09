@@ -24,8 +24,8 @@
 
 
     /*== Almacenando datos ==*/
-    $descripcion=limpiar_cadena($_POST['producto_descripcion']);
 	$nombre=limpiar_cadena($_POST['producto_nombre']);
+    $descripcion=limpiar_cadena($_POST['producto_descripcion']);
 
 	$precio=limpiar_cadena($_POST['producto_precio']);
 	$stock=limpiar_cadena($_POST['producto_stock']);
@@ -33,7 +33,7 @@
 
 
 	/*== Verificando campos obligatorios ==*/
-    if($descripcion=="" || $nombre=="" || $precio=="" || $stock=="" || $categoria==""){
+    if($nombre=="" || $descripcion=="" || $precio=="" || $stock=="" || $categoria==""){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -45,21 +45,22 @@
 
 
     /*== Verificando integridad de los datos ==*/
-    if(verificar_datos("[a-zA-Z0-9- ]{1,70}",$descripcion)){
-        echo '
-            <div class="notification is-danger is-light">
-                <strong>¡Ocurrio un error inesperado!</strong><br>
-                El DESCRIPCION no coincide con el formato solicitado
-            </div>
-        ';
-        exit();
-    }
 
     if(verificar_datos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}",$nombre)){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
                 El NOMBRE no coincide con el formato solicitado
+            </div>
+        ';
+        exit();
+    }
+
+    if(verificar_datos("[a-zA-Z0-9- ]{1,70}",$descripcion)){
+        echo '
+            <div class="notification is-danger is-light">
+                <strong>¡Ocurrio un error inesperado!</strong><br>
+                El DESCRIPCION no coincide con el formato solicitado
             </div>
         ';
         exit();
@@ -104,7 +105,7 @@
 
 
     /*== Verificando nombre ==*/
-    if($nombre!=$datos['producto_nombre']){
+    /*if($nombre!=$datos['producto_nombre']){
 	    $check_nombre=conexion();
 	    $check_nombre=$check_nombre->query("SELECT producto_nombre FROM producto WHERE producto_nombre='$nombre'");
 	    if($check_nombre->rowCount()>0){
@@ -117,7 +118,7 @@
 	        exit();
 	    }
 	    $check_nombre=null;
-    }
+    }*/
 
 
     /*== Verificando categoria ==*/
@@ -142,8 +143,8 @@
     $actualizar_producto=$actualizar_producto->prepare("UPDATE producto SET producto_descripcion=:descripcion,producto_nombre=:nombre,producto_precio=:precio,producto_stock=:stock,categoria_id=:categoria WHERE producto_id=:id");
 
     $marcadores=[
-        ":descripcion"=>$descripcion,
         ":nombre"=>$nombre,
+        ":descripcion"=>$descripcion,
         ":precio"=>$precio,
         ":stock"=>$stock,
         ":categoria"=>$categoria,
