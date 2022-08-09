@@ -52,7 +52,7 @@
                     <td>'.$rows['nombre_proveedor'].'</td>
                     <td>'.substr($rows['celular'],0,25).'</td>
                     <td>
-                        <a href="index.php?vista=category_update&category_id_up='.$rows['id_prov'].'" class="button is-success is-rounded is-small">Actualizar</a>
+                        <a href="index.php?vista=proveedor_update&supplier_id_up='.$rows['id_prov'].'" class="button is-success is-rounded is-small">Actualizar</a>
                     </td>
                     <td>
                         <a href="'.$url.$pagina.'&supplier_id_del='.$rows['id_prov'].'" class="button is-danger is-rounded is-small">Eliminar</a>
@@ -88,7 +88,7 @@
 	$tabla.='</tbody></table></div>';
 
 	if($total>0 && $pagina<=$Npaginas){
-		$tabla.='<p class="has-text-right">Mostrando categorías <strong>'.$pag_inicio.'</strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
+		$tabla.='<p class="has-text-right">Mostrando proveedores <strong>'.$pag_inicio.'</strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
 	}
 
 	$conexion=null;

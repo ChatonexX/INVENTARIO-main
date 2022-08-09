@@ -7,7 +7,7 @@
     <?php
         require_once "./php/main.php";
 
-        # Eliminar categoria #
+        # Eliminar proveedor #
         if(isset($_GET['supplier_id_del'])){
             require_once "./php/proveedor_eliminar.php";
         }

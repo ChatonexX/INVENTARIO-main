@@ -8,10 +8,10 @@
     
     if($check_proveedor->rowCount()==1){
 
-    	$check_proveedor=conexion();
-    	$check_proveedor=$check_proveedor->query("SELECT id_prov FROM proveedor WHERE id_proveedor='$supplier_id_del' LIMIT 1");
+    	$check_productos=conexion();
+    	$check_productos=$check_productos->query("SELECT id_prov FROM producto WHERE id_prov='$supplier_id_del' LIMIT 1");
 
-    	if($check_proveedor->rowCount()<=0){
+    	if($check_productos->rowCount()<=0){
 
     		$eliminar_proveedor=conexion();
 	    	$eliminar_proveedor=$eliminar_proveedor->prepare("DELETE FROM proveedor WHERE id_prov =:id");
@@ -42,7 +42,7 @@
 	            </div>
 	        ';
     	}
-    	$check_proveedor=null;
+    	$check_productos=null;
     }else{
     	echo '
             <div class="notification is-danger is-light">
