@@ -128,10 +128,12 @@
 
 
 	/*== Comprobando si se ha seleccionado una imagen ==*/
+    //Files es una variable de subida de ficheros HTTP//
 	if($_FILES['producto_foto']['name']!="" && $_FILES['producto_foto']['size']>0){
 
         /* Creando directorio de imagenes */
         if(!file_exists($img_dir)){
+            /* mkdir creara una carpeta */
             if(!mkdir($img_dir,0777)){
                 echo '
                     <div class="notification is-danger is-light">
@@ -168,6 +170,7 @@
 
 
 		/* extencion de las imagenes */
+        //Verifica si un archivo tiene formano png,jpg,etc//
 		switch(mime_content_type($_FILES['producto_foto']['tmp_name'])){
 			case 'image/jpeg':
 			  $img_ext=".jpg";
@@ -177,7 +180,7 @@
 			break;
 		}
 
-		/* Cambiando permisos al directorio */
+		/* Cambiando permisos al directorio y usuarios */
 		chmod($img_dir, 0777);
 
 		/* Nombre de la imagen */

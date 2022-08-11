@@ -16,6 +16,7 @@
     	$check_producto=$check_producto->query("SELECT * FROM producto WHERE producto_id='$id'");
 
         if($check_producto->rowCount()>0){
+			//Fetch muestra los registros hechos en la consulta//
         	$datos=$check_producto->fetch();
 	?>
 
