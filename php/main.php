@@ -51,10 +51,12 @@
 	function paginador_tablas($pagina,$Npaginas,$url,$botones){
 		$tabla='<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">';
 
+		/*no se puede regresar si estas en la pagina 1*/
 		if($pagina<=1){
 			$tabla.='
-			<a class="pagination-previous is-disabled" disabled >Anterior</a>
+			<a class="pagination-previous is-disabled" disabled >Anterior</a> 
 			<ul class="pagination-list">';
+		/*si estas en una pagina se restara 1 y volveras una pagina*/
 		}else{
 			$tabla.='
 			<a class="pagination-previous" href="'.$url.($pagina-1).'" >Anterior</a>
