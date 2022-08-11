@@ -3,7 +3,8 @@
 
 	require_once "main.php";
 
-	/*== Almacenando datos ==*/
+
+	/*== Almacenando datos del formulario ==*/
 	$nombre=limpiar_cadena($_POST['producto_nombre']);
     $descripcion=limpiar_cadena($_POST['producto_descripcion']);
 	$precio=limpiar_cadena($_POST['producto_precio']);
