@@ -63,7 +63,7 @@
                     $busqueda="";
 
                     # Paginador producto #
-                    require_once "./php/salidas_lista.php";
+                    require_once "./php/salidas_registro.php";
 
                 }else{
                     echo '<h2 class="has-text-centered title" >Seleccione una categoría para empezar</h2>';

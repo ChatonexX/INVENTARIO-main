@@ -8,23 +8,47 @@
 	<?php 
 		
 		require_once "./php/main.php";
+		
 		#Comparacion stock#
 		function stock_bajo(){
-			$comparacionStock="producto.producto_stock, producto.producto_stockm" ;
-			$consulta_nombre= "SELECT producto_nombre FROM producto WHERE producto_stock < 10" ;
+
+			
+			
+			$consulta_nombre= "SELECT producto_nombre FROM producto WHERE producto_stock < 10";
+
+			
 			$consultaStock= "SELECT producto_stock FROM producto";
 			$consultaStockm = "SELECT stock_minimo FROM producto";
 			$conexion = conexion();
 			$consultaNombre = $conexion->query($consulta_nombre);
-			$consultaNombre = $consultaNombre->fetchAll();
+			$fila = $consultaNombre->fetchAll();
+			//stock
 			$data = $conexion->query($consultaStock);
 			$data = $data->fetchAll();
+			//stock minimo
 			$data2 = $conexion->query($consultaStockm);
 			$data2 = $data2->fetchAll();
+			
 
-			if ($data = $data2) {
-				print $consultaNombre . "El stock de tu producto es bajo, realiza un pedido." ;
-			}
+			if ($data = $data2) {}
+
+
+				echo '
+				<div class="table-container">
+					<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+						<thead>
+							<tr class="has-text-centered">
+								<th>#</th>
+								<th>Producto de Bajo stock</th>
+								<th colspan="2">Opciones</th>
+							</tr>
+						</thead>
+						<tbody>
+				';
+
+		
+			
+			
 		}
 		return stock_bajo();
 

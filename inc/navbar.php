@@ -52,6 +52,13 @@
                     <a href="index.php?vista=departures_list" class="navbar-item">Lista de articulos vendidos</a>
                 </div>
             </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Bajo stock</a>
+
+                <div class="navbar-dropdown">
+                    <a href="index.php?vista=stock_list" class="navbar-item">Lista de stock</a>
+                </div>
+            </div>
 
         </div>
 

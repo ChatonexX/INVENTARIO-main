@@ -2,7 +2,7 @@
 	$inicio = ($pagina>0) ? (($pagina * $registros)-$registros) : 0;
 	$tabla="";
 
-	$campos="producto.producto_id,producto.producto_descripcion,producto.producto_nombre,producto.producto_precio,producto.producto_stock,producto.stock_minimo,producto.producto_foto,producto.categoria_id,producto.usuario_id,categoria.categoria_id,categoria.categoria_nombre,usuario.usuario_id,usuario.usuario_nombre,usuario.usuario_apellido";
+	$campos="producto.producto_id,producto.producto_descripcion,producto.producto_nombre,producto.producto_precio,producto.producto_stock,producto.producto_foto,producto.categoria_id,producto.usuario_id,categoria.categoria_id,categoria.categoria_nombre,usuario.usuario_id,usuario.usuario_nombre,usuario.usuario_apellido";
 
 	if(isset($busqueda) && $busqueda!=""){
 
@@ -56,15 +56,12 @@
 			                <strong>DESCRIPCION:</strong> '.$rows['producto_descripcion'].', 
 							<strong>PRECIO:</strong> $'.$rows['producto_precio'].', 
 							<strong>STOCK:</strong> '.$rows['producto_stock'].', 
-							<strong>STOCK MÍNIMO:</strong> '.$rows['stock_minimo'].', 
 							<strong>CATEGORIA:</strong> '.$rows['categoria_nombre'].', 
 							<strong>REGISTRADO POR:</strong> '.$rows['usuario_nombre'].' '.$rows['usuario_apellido'].'
 			              </p>
 			            </div>
 			            <div class="has-text-right">
-			                <a href="index.php?vista=product_img&product_id_up='.$rows['producto_id'].'" class="button is-link is-rounded is-small">Imagen</a>
-			                <a href="index.php?vista=product_update&product_id_up='.$rows['producto_id'].'" class="button is-success is-rounded is-small">Actualizar</a>
-			                <a href="'.$url.$pagina.'&product_id_del='.$rows['producto_id'].'" class="button is-danger is-rounded is-small">Eliminar</a>
+			                <a href="index.php?vista=departures_update&product_id_up='.$rows['producto_id'].'" class="button is-success is-rounded is-small">Registrar Salida</a>
 			            </div>
 			        </div>
 			    </article>
