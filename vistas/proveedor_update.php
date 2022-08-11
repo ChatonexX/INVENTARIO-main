@@ -7,7 +7,7 @@
 	<?php
 		include "./inc/btn_back.php";
 
-		require_once "./php/main.php";
+		require_once "./controlador/main.php";
 
 		$id = (isset($_GET['supplier_id_up'])) ? $_GET['supplier_id_up'] : 0;
 
@@ -21,7 +21,7 @@
 
 	<div class="form-rest mb-6 mt-6"></div>
 
-	<form action="./php/proveedor_actualizar.php" method="POST" class="FormularioAjax" autocomplete="off" >
+	<form action="./controlador/proveedor_actualizar.php" method="POST" class="FormularioAjax" autocomplete="off" >
 
 		<input type="hidden" name="id_prov" value="<?php echo $datos['id_prov']; ?>" required >
 

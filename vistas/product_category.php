@@ -5,7 +5,7 @@
 
 <div class="container pb-6 pt-6">
     <?php
-        require_once "./php/main.php";
+        require_once "./controlador/main.php";
     ?>
     <div class="columns">
         <div class="column is-one-third">
@@ -41,11 +41,11 @@
                         <p class="has-text-centered pb-6" >'.$check_categoria['categoria_ubicacion'].'</p>
                     ';
 
-                    require_once "./php/main.php";
+                    require_once "./controlador/main.php";
 
                     # Eliminar producto #
                     if(isset($_GET['product_id_del'])){
-                        require_once "./php/producto_eliminar.php";
+                        require_once "./controlador/producto_eliminar.php";
                     }
 
                     if(!isset($_GET['page'])){
@@ -63,7 +63,7 @@
                     $busqueda="";
 
                     # Paginador producto #
-                    require_once "./php/salidas_registro.php";
+                    require_once "./controlador/salidas_registro.php";
 
                 }else{
                     echo '<h2 class="has-text-centered title" >Seleccione una categoría para empezar</h2>';

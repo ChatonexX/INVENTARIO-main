@@ -5,12 +5,12 @@
 
 <div class="container pb-6 pt-6">
 	<?php
-		require_once "./php/main.php";
+		require_once "./controlador/main.php";
 	?>
 
 	<div class="form-rest mb-6 mt-6"></div>
 
-	<form action="./php/producto_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data" >
+	<form action="./controlador/producto_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data" >
 		<div class="columns">
 			<div class="column">
 			  <div class="control">

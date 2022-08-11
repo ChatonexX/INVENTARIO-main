@@ -7,7 +7,7 @@
 	<?php
 		include "./inc/btn_back.php";
 
-		require_once "./php/main.php";
+		require_once "./controlador/main.php";
 
 		$id = (isset($_GET['product_id_up'])) ? $_GET['product_id_up'] : 0;
 

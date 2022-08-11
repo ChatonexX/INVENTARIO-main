@@ -7,7 +7,7 @@
 	<?php
 		include "./inc/btn_back.php";
 
-		require_once "./php/main.php";
+		require_once "./controlador/main.php";
 
 		$id = (isset($_GET['product_id_up'])) ? $_GET['product_id_up'] : 0;
 
@@ -23,7 +23,7 @@
 	
 	<h2 class="title has-text-centered"><?php echo $datos['producto_nombre']; ?></h2>
 
-	<form action="./php/salidas_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
+	<form action="./controlador/salidas_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
 
 		<input type="hidden" name="producto_id" value="<?php echo $datos['producto_id']; ?>" required >
 		<input type="hidden" name="producto_stock" value="<?php echo $datos['producto_stock']; ?>" required >
