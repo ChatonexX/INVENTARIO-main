@@ -5,11 +5,11 @@
 
 <div class="container pb-6 pt-6">
     <?php
-        require_once "./php/main.php";
+        require_once "./controlador/main.php";
 
         # Eliminar proveedor #
         if(isset($_GET['supplier_id_del'])){
-            require_once "./php/proveedor_eliminar.php";
+            require_once "./controlador/proveedor_eliminar.php";
         }
 
         if(!isset($_GET['page'])){
@@ -27,6 +27,6 @@
         $busqueda="";
 
         # Paginador categoria #
-        require_once "./php/proveedor_lista.php";
+        require_once "./controlador/proveedor_lista.php";
     ?>
 </div>

@@ -5,7 +5,7 @@
 
 <div class="container pb-6 pt-6">
     <?php
-        require_once "./php/main.php";
+        require_once "./controlador/main.php";
 
         # Eliminar producto #
         /*if(isset($_GET['product_id_del'])){
@@ -29,6 +29,6 @@
         $busqueda="";
 
         # Paginador producto #
-        require_once "./php/salidas_lista.php";
+        require_once "./controlador/salidas_lista.php";
     ?>
 </div>

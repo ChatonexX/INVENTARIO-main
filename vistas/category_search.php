@@ -5,10 +5,10 @@
 
 <div class="container pb-6 pt-6">
     <?php
-        require_once "./php/main.php";
+        require_once "./controlador/main.php";
 
         if(isset($_POST['modulo_buscador'])){
-            require_once "./php/buscador.php";
+            require_once "./controlador/buscador.php";
         }
 
         if(!isset($_SESSION['busqueda_categoria']) && empty($_SESSION['busqueda_categoria'])){
@@ -44,7 +44,7 @@
     <?php
             # Eliminar categoria #
             if(isset($_GET['category_id_del'])){
-                require_once "./php/categoria_eliminar.php";
+                require_once "./controlador/categoria_eliminar.php";
             }
 
             if(!isset($_GET['page'])){
@@ -62,7 +62,7 @@
             $busqueda=$_SESSION['busqueda_categoria']; /* <== */
 
             # Paginador categoria #
-            require_once "./php/categoria_lista.php";
+            require_once "./controlador/categoria_lista.php";
         } 
     ?>
 </div>

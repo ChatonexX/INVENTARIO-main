@@ -5,7 +5,7 @@
 
 <div class="container pb-6 pt-6">
     <?php
-        require_once "./php/main.php";
+        require_once "./controlador/main.php";
         include "product_category.php";
     ?>
 </div>
