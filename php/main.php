@@ -3,7 +3,7 @@
 	# Conexion a la base de datos #
 	
 		 function conexion()
-		{
+		{	/* La clase PDO representa una conexión entre PHP y un servidor de bases de datos. */
 			$pdo = new PDO('mysql:host=localhost;dbname=inventario', 'root', '');
 
 			return $pdo;
@@ -27,7 +27,7 @@
 	function limpiar_cadena($cadena){
 		/* Elimina espacions en blanco */
 		$cadena=trim($cadena);
-		/* Reemplaza por una diagonal / cualquier clase de comillas */
+		/* Reemplaza por una diagonal / cualquier clase de comillas< */
 		$cadena=stripslashes($cadena);
 		$cadena=trim($cadena);
 		$cadena=stripslashes($cadena);
