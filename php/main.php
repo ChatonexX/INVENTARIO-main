@@ -25,7 +25,9 @@
 
 	# Limpiar cadenas de texto #
 	function limpiar_cadena($cadena){
+		/* Elimina espacions en blanco */
 		$cadena=trim($cadena);
+		/* Reemplaza por una diagonal / cualquier clase de comillas */
 		$cadena=stripslashes($cadena);
 		$cadena=trim($cadena);
 		$cadena=stripslashes($cadena);
