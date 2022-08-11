@@ -1,6 +1,6 @@
 <div class="container is-fluid mb-6">
-    <h1 class="title">Productos</h1>
-    <h2 class="subtitle">Lista de productos por categoría</h2>
+    <!--<h2 class="title">Productos</h2>
+    <h2 class="subtitle">Lista de productos por categoría</h2>-->
 </div>
 
 <div class="container pb-6 pt-6">
@@ -63,7 +63,7 @@
                     $busqueda="";
 
                     # Paginador producto #
-                    require_once "./php/producto_lista.php";
+                    require_once "./php/salidas_lista.php";
 
                 }else{
                     echo '<h2 class="has-text-centered title" >Seleccione una categoría para empezar</h2>';
