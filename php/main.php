@@ -35,6 +35,7 @@
 
 	# Funcion renombrar fotos #
 	function renombrar_fotos($nombre){
+		/* Si hay un espacio o los simbolos especificados los reemplaza con _ */
 		$nombre=str_ireplace(" ", "_", $nombre);
 		$nombre=str_ireplace("/", "_", $nombre);
 		$nombre=str_ireplace("#", "_", $nombre);
