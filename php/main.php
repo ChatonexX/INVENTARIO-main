@@ -78,14 +78,15 @@
 			}
 			$ci++;
 		}
-
+		#pagina final#
 		if($pagina==$Npaginas){
 			$tabla.='
 			</ul>
 			<a class="pagination-next is-disabled" disabled >Siguiente</a>
 			';
-		}else{
-			$tabla.='
+		#Siguiente pagina +1#
+		}else{/*url y npaginas nos llevara a la pagina final*/
+			$tabla.=' 
 				<li><span class="pagination-ellipsis">&hellip;</span></li>
 				<li><a class="pagination-link" href="'.$url.$Npaginas.'">'.$Npaginas.'</a></li>
 			</ul>

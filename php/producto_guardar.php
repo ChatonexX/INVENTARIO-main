@@ -77,22 +77,6 @@
         exit();
     }
 
-
-    /*== Verificando nombre ==*/
-    $check_nombre=conexion();
-    $check_nombre=$check_nombre->query("SELECT producto_nombre FROM producto WHERE producto_nombre='$nombre'");
-    if($check_nombre->rowCount()>0){
-        echo '
-            <div class="notification is-danger is-light">
-                <strong>¡Ocurrio un error inesperado!</strong><br>
-                El NOMBRE ingresado ya se encuentra registrado, por favor elija otro
-            </div>
-        ';
-        exit();
-    }
-    $check_nombre=null;
-
-
     /*== Verificando descripcion ==*/
     $check_descripcion=conexion();
     $check_descripcion=$check_descripcion->query("SELECT producto_descripcion FROM producto WHERE producto_descripcion='$descripcion'");
