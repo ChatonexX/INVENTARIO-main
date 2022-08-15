@@ -71,6 +71,15 @@
 
 			    <hr>
             ';
+
+			if($rows['producto_stock']<=$rows['stock_minimo']){
+				echo '<div class="notification is-danger is-light">
+				<strong>¡PRODUCTOS EN BAJO STOCK!</strong><br>
+				El producto: '.$rows['producto_nombre'].' tiene stock bajo.
+		
+				</div>';
+
+			}
             $contador++;
 		}
 		$pag_final=$contador-1;
