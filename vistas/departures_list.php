@@ -8,9 +8,9 @@
         require_once "./controlador/main.php";
 
         # Eliminar producto #
-        /*if(isset($_GET['product_id_del'])){
-            require_once "./php/producto_eliminar.php";
-        }*/
+        if(isset($_GET['departure_id_del'])){
+            require_once "./controlador/salidas_eliminar.php";
+        }
 
         if(!isset($_GET['page'])){
             $pagina=1;

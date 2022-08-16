@@ -84,7 +84,7 @@
 
     if($guardar_proveedor->rowCount()==1){
         echo '
-            <div class="notification is-info is-light">
+            <div class="notification is-success is-light">
                 <strong>¡PROVEEDOR REGISTRADO!</strong><br>
                 El proveeedor se registro con exito
             </div>

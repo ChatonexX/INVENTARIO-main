@@ -15,13 +15,13 @@
 			<div class="column">
 			  <div class="control">
 				  <label>Nombre</label>
-					<input class="input" type="text" name="producto_nombre" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}" maxlength="70" required >
+					<input class="input is-info input" type="text" name="producto_nombre" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}" maxlength="70" required >
 			  </div>
 
 		  	<div class="colums">
 		    	<div class="control">
 					<label>Descripcion</label>
-				  	<input class="input" type="text" name="producto_descripcion" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}" maxlength="70" required >
+				  	<input class="input is-info input" type="text" name="producto_descripcion" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,70}" maxlength="70" required >
 				</div>
 		  	</div>
 		  	</div>
@@ -30,24 +30,24 @@
 		  	<div class="column">
 		    	<div class="control">
 					<label>Precio</label>
-				  	<input class="input" type="text" name="producto_precio" pattern="[0-9.]{1,25}" maxlength="25" required >
+				  	<input class="input is-info input" type="text" name="producto_precio" pattern="[0-9.]{1,25}" maxlength="25" required >
 				</div>
 		  	</div>
 		  	<div class="column">
 		    	<div class="control">
 					<label>Stock</label>
-				  	<input class="input" type="text" name="producto_stock" pattern="[0-9]{1,25}" maxlength="25" required >
+				  	<input class="input is-info input" type="text" name="producto_stock" pattern="[0-9]{1,25}" maxlength="25" required >
 				</div>
 		  	</div>
 			  <div class="column">
 		    	<div class="control">
 					<label>Stock Mínimo</label>
-				  	<input class="input" type="text" name="stock_minimo" pattern="[0-9]{1,25}" maxlength="25" required >
+				  	<input class="input is-info input" type="text" name="stock_minimo" pattern="[0-9]{1,25}" maxlength="25" required >
 				</div>
 		  	</div>
 		  	<div class="column">
 				<label>Categoría</label><br>
-		    	<div class="select is-rounded">
+		    	<div class=" select is-info select is-rounded">
 				  	<select name="producto_categoria" >
 				    	<option value="" selected="" >Seleccione una opción</option>
 				    	<?php
@@ -68,7 +68,7 @@
 
 		<div class="column">
 				<label>Proveedor</label><br>
-		    	<div class="select is-rounded">
+		    	<div class="select is-info select is-rounded">
 				  	<select name="proveedor" >
 				    	<option value="" selected="" >Seleccione una opción</option>
 				    	<?php
@@ -103,7 +103,7 @@
 			</div>
 		</div>
 		<p class="has-text-centered">
-			<button type="submit" class="button is-info is-rounded">Guardar</button>
+			<button type="submit" class="button is-info is-outlined is-focused">Guardar</button>
 		</p>
 	</form>
 </div>

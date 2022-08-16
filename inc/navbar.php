@@ -69,7 +69,7 @@
                         Mi cuenta
                     </a>-->
 
-                    <a href="index.php?vista=logout" class="button is-link is-rounded">
+                    <a href="index.php?vista=logout" class="button is-danger  is-focused">
                         Salir
                     </a>
                 </div>

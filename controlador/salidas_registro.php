@@ -61,7 +61,7 @@
 			              </p>
 			            </div>
 			            <div class="has-text-right">
-			                <a href="index.php?vista=departures_update&product_id_up='.$rows['producto_id'].'" class="button is-success is-rounded is-small">Registrar Salida</a>
+			                <a href="index.php?vista=departures_update&product_id_up='.$rows['producto_id'].'" class="button is-success is-focused is-small">Registrar Salida</a>
 			            </div>
 			        </div>
 			    </article>

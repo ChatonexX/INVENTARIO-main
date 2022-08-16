@@ -2,7 +2,7 @@
 	$inicio = ($pagina>0) ? (($pagina * $registros)-$registros) : 0;
 	$tabla="";
 
-	$campos="salidas.id_prod,salidas.fecha_salida,salidas.cantidad,producto.producto_nombre,producto.producto_stock";
+	$campos="salidas.id_salidas,salidas.id_prod,salidas.fecha_salida,salidas.cantidad,producto.producto_id,producto.producto_nombre,producto.producto_stock";
 
 	if(isset($busqueda) && $busqueda!=""){
 
@@ -37,6 +37,7 @@
                     <th>Producto</th>
                     <th>Fecha</th>
                     <th>Cantidad Vendida</th>
+                    <th>Opciones</th>
 					
                 </tr>
             </thead>
@@ -55,8 +56,9 @@
                     <td>'.$rows['producto_nombre'].'</td>
                     <td>'.$rows['fecha_salida'].'</td>
                     <td>'.$rows['cantidad'].'</td> 
-					
-                    </td>
+					<td>
+					<a href="'.$url.$pagina.'&departure_id_del='.$rows['id_salidas'].'" class="button is-danger is-rounded is-small">Eliminar</a>
+				</td>
                 </tr>
             ';
             $contador++;
@@ -88,7 +90,7 @@
 	$tabla.='</tbody></table></div>';
 
 	if($total>0 && $pagina<=$Npaginas){
-		$tabla.='<p class="has-text-right">Mostrando productos <strong>'.$pag_inicio.'</strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
+		$tabla.='<p class="has-text-right">Mostrando salidas <strong>'.$pag_inicio.'</strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
 	}
 
 	$conexion=null;

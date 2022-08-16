@@ -49,7 +49,7 @@
 
     if($guardar_salida->rowCount()==1){
         echo '
-            <div class="notification is-info is-light">
+            <div class="notification is-success is-light">
                 <strong>¡PRODUCTO REGISTRADO!</strong><br>
                 Se ha registrado la salida del producto con exito!
             </div>

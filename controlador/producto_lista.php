@@ -53,18 +53,18 @@
 			            <div class="content">
 			              <p>
 			                <strong>'.$contador.' - '.$rows['producto_nombre'].'</strong><br>
-			                <strong>DESCRIPCION:</strong> '.$rows['producto_descripcion'].', 
-							<strong>PRECIO:</strong> $'.$rows['producto_precio'].', 
-							<strong>STOCK:</strong> '.$rows['producto_stock'].', 
-							<strong>STOCK MÍNIMO:</strong> '.$rows['stock_minimo'].', 
-							<strong>CATEGORIA:</strong> '.$rows['categoria_nombre'].', 
+			                <strong>DESCRIPCION:</strong> '.$rows['producto_descripcion'].'<br>
+							<strong>PRECIO:</strong> $'.$rows['producto_precio'].'<br> 
+							<strong>STOCK:</strong> '.$rows['producto_stock'].'<br>  
+							<strong>STOCK MÍNIMO:</strong> '.$rows['stock_minimo'].'<br> 
+							<strong>CATEGORIA:</strong> '.$rows['categoria_nombre'].'<br>
 							<strong>REGISTRADO POR:</strong> '.$rows['usuario_nombre'].' '.$rows['usuario_apellido'].'
 			              </p>
 			            </div>
 			            <div class="has-text-right">
-			                <a href="index.php?vista=product_img&product_id_up='.$rows['producto_id'].'" class="button is-link is-rounded is-small">Imagen</a>
-			                <a href="index.php?vista=product_update&product_id_up='.$rows['producto_id'].'" class="button is-success is-rounded is-small">Actualizar</a>
-			                <a href="'.$url.$pagina.'&product_id_del='.$rows['producto_id'].'" class="button is-danger is-rounded is-small">Eliminar</a>
+			                <a href="index.php?vista=product_img&product_id_up='.$rows['producto_id'].'" class="button is is-info is-link is-focused is-default">Imagen</a>
+			                <a href="index.php?vista=product_update&product_id_up='.$rows['producto_id'].'" class="button is-success is-focused is-default">Actualizar</a>
+			                <a href="'.$url.$pagina.'&product_id_del='.$rows['producto_id'].'" class="button is-danger is-focused is-default">Eliminar</a>
 			            </div>
 			        </div>
 			    </article>
@@ -73,7 +73,7 @@
             ';
 
 			if($rows['producto_stock']<=$rows['stock_minimo']){
-				echo '<div class="notification is-danger is-light">
+				echo '<div  class="notification is-warning is-light  ">
 				<strong>¡PRODUCTOS EN BAJO STOCK!</strong><br>
 				El producto: '.$rows['producto_nombre'].' tiene stock bajo.
 		

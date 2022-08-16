@@ -70,7 +70,7 @@
 
     if($guardar_categoria->rowCount()==1){
         echo '
-            <div class="notification is-info is-light">
+            <div class="notification is-success is-light">
                 <strong>¡CATEGORIA REGISTRADA!</strong><br>
                 La categoría se registro con exito
             </div>
